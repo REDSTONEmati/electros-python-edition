@@ -1,0 +1,35 @@
+def ElectrOScript():
+  importCode = "null"
+  x = 1
+  importCode.split('\n')
+  lines = []
+  while True:
+    line = input()
+    if line != "{end}":
+        lines.append(line)
+    else:
+        break
+  text = '\n'.join(lines)
+  importCode = text.split()
+  if importCode[0] == "{start}":
+    while importCode[x] != "{end}":
+      if "say" in importCode[x]:
+        EScriptLine = list(importCode[x])
+        if EScriptLine[3] == "(" and EScriptLine[4] == '"':
+          sayCharCounter = 5
+          output = [""]
+          while EScriptLine[sayCharCounter] != '"':
+            if EScriptLine[sayCharCounter] == "^":
+              output.append(" ")
+            else:
+              output.append(EScriptLine[sayCharCounter])
+            sayCharCounter += 1
+          print(''.join(output))
+          if x <= len(importCode):
+            x = x + 1
+          #break
+        else:
+          print('ElectrOScript ERROR: string must start with ""')
+      else:
+        print('ElectrOScript ERROR: No known command was found in the script')
+    
