@@ -1,4 +1,4 @@
-print('Welcome to ElectrOS Py Edition, version 0.3.0.1 ALPHA')
+print('Welcome to ElectrOS Py Edition, version 0.3.0.3 ALPHA')
 from time import sleep as wait
 scripts = [""]
 scriptNames = [""]
@@ -157,10 +157,10 @@ def OS():
     elif cmd == '.info':
       print('==============================' * 2)
       if language[0] == "EN":
-        print('ElectrOS ALPHA\nVersion: 0.3.0.1\nEdition: Py (Python/Pi (?)/Raspberry Pi (?))')
+        print('ElectrOS ALPHA\nVersion: 0.3.0.3\nEdition: Py (Python/Pi (?)/Raspberry Pi (?))')
         print('Bot Version: 0.1.2\nElectrOScript Version: 0.2.2')
       elif language[0] == "UA":
-        print('ElectrOS ALPHA\nВерсія: 0.3.0.1\nВідміна: Py (Python/Pi (?)/Raspberry Pi (?)')
+        print('ElectrOS ALPHA\nВерсія: 0.3.0.3\nВідміна: Py (Python/Pi (?)/Raspberry Pi (?)')
         print('Версія ЧатБота: 0.1.2\nВерсія ElectrOScript: 0.2.2')
       print('==============================' * 2) 
       OS()
