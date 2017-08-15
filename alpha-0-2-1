@@ -1,88 +1,61 @@
-print('Welcome to ElectrOS Py Edition, version 0.3.0.1 ALPHA')
+var1 = ""
+var2 = ""
+var3 = ""
+print('Welcome to ElectrOS Py Edition, version 0.2.1 ALPHA')
 from time import sleep as wait
-scripts = [""]
-scriptNames = [""]
 devMode = [0]
 language = ["EN"]
-def Bot():
-        botInput = input()
-        if botInput == "Exit":
-          OS()
-        else:
-          hiEn = ["Hello ;)", "Hi", "Hiiii:)", 'Hello my friend!', 'Hello random person']
-          hiGlitch = ["Neflo ;)", "Bf", "Enfju:)", 'Djrki ne 9dj3bf!', 'X93jf rkcmeod c03kso']
-          hiUA = ["Привіт", "Йоу", ""]
-          emojiMuwiEN = ["Oh, don't even talk about this shit", "I don't even want to talk about this movie ;(", "Yeah I know this movie. It's a failure"]
-          null = ["?", "Did you say something?", "Stop it, I don't like empty lines :("]
-          anwType = null
-          from random import randint as random
-          #print("hello" in botInput or "hi" in botInput or "Hello" in botInput or "Hi" in botInput or "HELLO" in botInput or "HI" in botInput or "Hii" in botInput or "Helo" in botInput)
-          if "hello" in botInput or "hi" in botInput or "Hello" in botInput or "Hi" in botInput or "HELLO" in botInput or "HI" in botInput or "Helo" in botInput:
-            if language[0] == 'EN':
-              anwType = hiEn
-            elif language[0] == "UA":
-              anwType = hiUA
-            else:
-              anwType = hiGlitch
-          if "Emoji Movie" in botInput or "EMOJI MOVIE" in botInput or "emoji movie" in botInput or "emojie movie" in botInput or "Emoji Muwi" in botInput or "Emoji MOVIE" in botInput or "EMOUDŻI" in botInput:
-            if language[0] == 'EN':
-              anwType = emojiMuwiEN
-            elif language[0] == "UA":
-              anwType = emojiMuwiUA
-            else:
-              anwType = emojiMuwiGlitch
-          print(anwType[random(0, len(anwType) - 1)])
-          Bot()
-def ElectrOScript(mode):
-  variables = ["var1"]
-  variablesData = ["Hello^World"]
+def ElectrOScript():
+  variables = []
+  variablesData = []
+  #var1 = ""
+  #var2 = ""
+  #var3 = ""
   importCode = "null"
   x = 1
-  if mode == "":
-    importCode.split('\n')
-    lines = []
-    while True:
-      line = input()
-      if line != "{end}":
-          lines.append(line)
-      else:
-          lines.append("{end}")
-          break
-    text = '\n'.join(lines)
-  else:
-    text = mode
+  importCode.split('\n')
+  lines = []
+  while True:
+    line = input()
+    if line != "{end}":
+        lines.append(line)
+    else:
+        lines.append("{end}")
+        break
+  text = '\n'.join(lines)
   importCode = text.split()
   print("================================" * 2)
   if importCode[0] == '{start}':
     
     while importCode[x] != "{end}":
-      #if "var1" in importCode[x]:
-        #EScriptLine = list(importCode[x])
-        #print(EScriptLine)
-        #if EScriptLine[4] == "=":
-          #if EScriptLine[5] == '"':
-            #sayCharCounter = 6
-            #var1Data = [""]
-            #while EScriptLine[sayCharCounter] != '"':
-              #print(EScriptLine[sayCharCounter] != '"')
-              #print(EScriptLine[sayCharCounter])
-              #print(var1Data)
-              #if EScriptLine[sayCharCounter] == "^":
-                #var1Data.append(" ")
-                #print(EScriptLine[sayCharCounter])
-              #else:
-                #var1Data.append(EScriptLine[sayCharCounter])
-              #sayCharCounter += 1
-            #var1 = (''.join(var1Data))
-        #variable1 code
-        #print(len(importCode))
-        #if x <= len(importCode):
-          #x = x + 1
-          #print(x)
-        #else:
-          #break
-      if "say" in importCode[x]:
+      if "var1" in importCode[x]:
         EScriptLine = list(importCode[x])
+        print(EScriptLine)
+        if EScriptLine[4] == "=":
+          if EScriptLine[5] == '"':
+            sayCharCounter = 6
+            var1Data = [""]
+            while EScriptLine[sayCharCounter] != '"':
+              print(EScriptLine[sayCharCounter] != '"')
+              print(EScriptLine[sayCharCounter])
+              print(var1Data)
+              if EScriptLine[sayCharCounter] == "^":
+                var1Data.append(" ")
+                print(EScriptLine[sayCharCounter])
+              else:
+                var1Data.append(EScriptLine[sayCharCounter])
+              sayCharCounter += 1
+            var1 = (''.join(var1Data))
+        #variable1 code
+        print(len(importCode))
+        if x <= len(importCode):
+          x = x + 1
+          print(x)
+        else:
+          break
+      elif "say" in importCode[x]:
+        EScriptLine = list(importCode[x])
+        print(EScriptLine[4] == '"')
         if EScriptLine[3] == "(":
           
           if EScriptLine[4] == '"':
@@ -107,8 +80,8 @@ def ElectrOScript(mode):
               #sayCharCounter += 1
             xyz = ''.join(varTarget)
             #print(''.join(varTarget))
-            #if "var1" in xyz:
-              #print(var1)
+            if "var1" in xyz:
+              print(var1)
             print(len(importCode))
             if x <= len(importCode):
               x = x + 1
@@ -118,10 +91,12 @@ def ElectrOScript(mode):
             #print('ElectrOScript ERROR: string must start with ""')
       
       else:
-        #print('ElectrOScript ERROR: No known command was found in the script')
-        print("TEST VARIABLE CODE")
+        print('ElectrOScript ERROR: No known command was found in the script')
         break
+    
 def OS():
+  scripts = []
+  scriptNames = []
   if language[0] == "EN":
     print('Type any command. Type .help to show help')
   elif language[0] == "UA":
@@ -136,7 +111,7 @@ def OS():
       print('==============================' * 2)
       if language[0] == "EN":
         print('.info - displays info about the OS\n.help - displays help\n.bot - launches ChatBot')
-        print('.import - imports ElectrOScript app\n.language - changes the language of the OS\n.shutdown - Shuts down the ElectrOS\n.code - launches ElectrOScript console\n.open - opens ElectrOScript app')
+        print('.import - imports ElectrOScript app\n.language - changes the language of the OS\n.shutdown - Shuts down the ElectrOS')
       elif language[0] == "UA":
         print('.info - показує інформацію о системі\n.help - показує список команд\n.bot - вмикає ЧатБота')
         print('.import - імпортує програму написану в ElectrOScript\n.language - Змінює мову\n.shutdown - Вимикає систему')
@@ -146,26 +121,48 @@ def OS():
       else:
         print('.info - dj389vlrm nfso abtou elz NK\n.help - ei30vkf_ joi[\n.bot - dewjiode ChatBot')
         print('.import - wem3ix9 ElectrOScript 3ld\n.language - dj49cnd 2k0 lsk39c[de kr zle KF\n.shutdown - Jisnf lwop zle ElectrOS')
+      #print(devMode[0])
       if devMode[0] == 1:
         print('.login - Login to an account\n.reg - Registers an account')
         print('.debug - launches debug screen\n.open - opens app')
       print('==============================' * 2)
       OS()
     elif cmd == '.debug':
-      #print(var1)
+      print(var1)
       OS()
     elif cmd == '.info':
       print('==============================' * 2)
       if language[0] == "EN":
-        print('ElectrOS ALPHA\nVersion: 0.3.0.1\nEdition: Py (Python/Pi (?)/Raspberry Pi (?))')
-        print('Bot Version: 0.1.2\nElectrOScript Version: 0.2.2')
+        print('ElectrOS ALPHA\nVersion: 0.2.1\nEdition: Py (Python/Pi (?)/Raspberry Pi (?))')
+        print('Bot Version: 0.1.1\nElectrOScript Version: 0.2.2')
       elif language[0] == "UA":
-        print('ElectrOS ALPHA\nВерсія: 0.3.0.1\nВідміна: Py (Python/Pi (?)/Raspberry Pi (?)')
-        print('Версія ЧатБота: 0.1.2\nВерсія ElectrOScript: 0.2.2')
+        print('ElectrOS ALPHA\nВерсія: 0.2.1\nВідміна: Py (Python/Pi (?)/Raspberry Pi (?)')
+        print('Версія ЧатБота: 0.1.1\nВерсія ElectrOScript: 0.2.2')
       print('==============================' * 2) 
       OS()
     elif cmd == '.bot':
       print('Enter something, like "Hello"')
+      def Bot():
+        botInput = input()
+        if botInput == "Exit":
+          OS()
+        else:
+          hiEn = ["Hello ;)", "Hi", "Hiiii:)", 'Hello my friend!', 'Hello random person']
+          hiUA = ["Привіт", "Йоу", ""]
+          howUFeel = [""]
+          null = ["?", "Did you say something?", "Stop it, I don't like empty lines :("]
+          anwType = null
+          from random import randint as random
+          #print("hello" in botInput or "hi" in botInput or "Hello" in botInput or "Hi" in botInput or "HELLO" in botInput or "HI" in botInput or "Hii" in botInput or "Helo" in botInput)
+          if "hello" in botInput or "hi" in botInput or "Hello" in botInput or "Hi" in botInput or "HELLO" in botInput or "HI" in botInput or "Helo" in botInput:
+            if language[0] == 'EN':
+              anwType = hiEn
+            elif language[0] == "UA":
+              anwType = hiUA
+            else:
+              anwType = null
+          print(anwType[random(0, len(anwType) - 1)])
+          Bot()
       Bot()
     elif cmd == '.language' or cmd == ".lan":
       if language[0] == "EN":
@@ -185,35 +182,10 @@ def OS():
        print('Developer mode was activated. New commands and functions have been added')
        devMode[0] = 1
        OS()
-    elif cmd == ".code":
+    elif cmd == ".import" or cmd == ".code":
       #try:
-      ElectrOScript("")
+      ElectrOScript()
       #finally:
-      OS()
-    elif cmd == ".import" or cmd == ".i":
-      print("Enter name of the app (it'll be used to open the app, like Calculator is 'calc'.")
-      z = input()
-      scriptNames.append(z)
-      print("Start entering the code.")
-      lines = []
-      while True:
-        line = input()
-        if line != "{end}":
-            lines.append(line)
-        else:
-            lines.append("{end}")
-            break
-      text = '\n'.join(lines)
-      scripts.append(text)
-      OS()
-    elif cmd == ".open":
-      print("Enter the name of the app (like 'calc')")
-      print(scriptNames)
-      hx = input()
-      y = 0
-      while scriptNames[y] != hx and y < len(scriptNames):
-        y = y + 1
-      ElectrOScript(scripts[y])
       OS()
     elif cmd == ".shutdown":
       print("Shutting down...")
@@ -224,3 +196,7 @@ def OS():
       print('ERROR (001) = Commands must start with "."')
       OS()
 OS()
+
+
+
+    
