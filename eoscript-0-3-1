@@ -18,10 +18,9 @@ def ElectrOScript(mode):
   else:
     importCode = mode
     hhh = 0
-  print(importCode)
   print("================================" * 2)
   if importCode[hhh] == '{start}':
-    while importCode[x] != "{end}":
+    while importCode[x] != "{end}" and x < len(importCode) - 1:
       EScriptLine = list(importCode[x])
       if EScriptLine[0] == "s" and EScriptLine[1] == "a" and EScriptLine[2] == "y":
         if EScriptLine[3] == "(":
@@ -62,44 +61,41 @@ def ElectrOScript(mode):
           varTarget.append(EScriptLine[sayCharCounter])
           if EScriptLine[sayCharCounter] != ' ' and EScriptLine != ";":
             sayCharCounter += 1
-        print(EScriptLine[sayCharCounter])
+        varTarget = ''.join(varTarget)
         if EScriptLine[sayCharCounter] != ";":
           sayCharCounter += 3
         else:
-          if not ''.join(varTarget) in varNames:
+          if not varTarget in varNames:
             varNames.append(varTarget)
             varData.append("null")
           else:
             print("ERROR")
-          print(EScriptLine[sayCharCounter] == '"')
-          if EScriptLine[sayCharCounter] == '"':
-            print(varData)
-            sayCharCounter += 1
-            varCont = ['']
-            while EScriptLine[sayCharCounter] != '"':
-              varCont.append(EScriptLine[sayCharCounter])
-              if EScriptLine[sayCharCounter] != '"':
-                sayCharCounter += 1
-          elif ''.join(EScriptLine[sayCharCounter:sayCharCounter + 7]) == "input()":
-            varCont = input()
+        if EScriptLine[sayCharCounter] == '"':
+          sayCharCounter += 1
+          varCont = ['']
+          while EScriptLine[sayCharCounter] != '"':
+            varCont.append(EScriptLine[sayCharCounter])
+            if EScriptLine[sayCharCounter] != '"':
+              sayCharCounter += 1
+        elif ''.join(EScriptLine[sayCharCounter:sayCharCounter + 7]) == "input()":
+          varCont = input()
+        else:
+          print("ERROR")
+        varCont = ''.join(varCont)
+        varTarget = ''.join(varTarget)
+        y = 0
+        while varNames[y] != varTarget:
+          if y != len(varNames) - 1:
+            y += 1
           else:
-            print("ERROR")
-          print(varCont)
-          varCont = ''.join(varCont)
-          varTarget = ''.join(varTarget)
-          y = 0
-          while varNames[y] != varTarget:
-            if y != len(varNames) - 1:
-              y += 1
-            else:
-              break
-          varData[y] = varCont
-        if x <= len(importCode):
-          x = x + 1
+            break
+        varData[y] = varCont
+      if x <= len(importCode):
+        x = x + 1
       elif EScriptLine[0] == "#":
         if x <= len(importCode):
           x = x + 1
-      else:
-        #print('ElectrOScript ERROR: No known command was found in the script')
-        print("TEST VARIABLE CODE")
-        break
+    else:
+      #print('ElectrOScript ERROR: No known command was found in the script')
+      print("TEST VARIABLE CODE")
+      #break
